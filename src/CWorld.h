@@ -70,6 +70,7 @@ public:
     int m_scale;
     int m_angle;
     int m_red,m_green, m_blue, m_alpha;
+    int m_background_r, m_background_g, m_background_b;
     int m_boxSize, m_boxCenterX, m_boxCenterY;
     vector<CBoxButton *> m_boxButtons;
 

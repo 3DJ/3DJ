@@ -7,15 +7,16 @@
 //
 
 #include <iostream>
-#include "World.h"
+#include "CWorld.h"
 
 CWorld::CWorld()
 {
     //Set up Kinect
 	m_oniKinect.setup();
 
-	m_angle = 20; // 20 degree tilt on startup
-	//m_oniKinect.setCameraTiltAngle(m_angle);
+	m_background_r = 100;
+    m_background_g = 100;
+    m_background_b = 100;
 
     //SET UP BUTTONS and add all buttons to world vector============
     //    x, y, z, box size, r, g, b, a, music sample name
@@ -107,7 +108,7 @@ void CWorld::render()
 
 void CWorld::update(double time_since_last_update)
 {
-	ofBackground(100, 100, 100);
+	//ofBackground(m_background_r, m_background_g, m_background_b);
     //ofBackgroundGradient(ofColor(0), ofColor(25,22,10));
 
     m_oniKinect.update();
