@@ -55,7 +55,6 @@ void CMenuViewController::menuEvent(ofxUIEventArgs &e)
     }else if(name == "Start Session"){
         static string val = "testThread"; // for testing the datapool communicating between threads
         CDataPool::getInstance().createRef("testDataPool", &val);
-        m_ogreThread.startThread(true, true);
         m_exitMenu = true;
         hideAllViews();
         g_currentState = ST_BOX_STATE;

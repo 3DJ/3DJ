@@ -10,7 +10,7 @@ OF_ROOT = ../../..
 # for example search paths like:
 # USER_CFLAGS = -I src/objects
 
-USER_CFLAGS = -I ../../../addons/ofxOpenNI/src/ofxOpenNI/include  -I ../../../addons/ofxOpenNI/src/ofxOpenNI/include/libusb -I ../../../addons/ofxOpenNI/src/ofxOpenNI/include/openni -I ../../../addons/ofxOpenNI/src/ofxOpenNI/include/nite -I /usr/include/ni -I /usr/lib/x86_64-linux-gnu
+USER_CFLAGS = -I ../../../addons/ofxOpenNI/include -I ../../../addons/ofxOpenNI/include/libusb -I ../../../addons/ofxOpenNI/include/openni -I ../../../addons/ofxOpenNI/include/nite -I /usr/include/ni -I /usr/lib/x86_64-linux-gnu
 
 # USER_LDFLAGS allows to pass custom flags to the linker
 # for example libraries like:

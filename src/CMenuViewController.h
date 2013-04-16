@@ -14,7 +14,6 @@
 #include "CalibrationView.h"
 #include "Interface.h"
 #include "DataPool.h"
-#include "COgreThread.h"
 #include "BoxButton.h"
 
 using namespace DataPool;
@@ -49,7 +48,6 @@ public:
     bool m_exitMenu;
 
     string originalFileExtension;
-    COgreThread m_ogreThread;
 };
 
 #endif
