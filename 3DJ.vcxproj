@@ -114,8 +114,6 @@
     <ClCompile Include="src\CMenuViewController.cpp" />
     <ClCompile Include="src\CNavigationControlButtons.cpp" />
     <ClCompile Include="src\CNavigationUIController.cpp" />
-    <ClCompile Include="src\COgreMain.cpp" />
-    <ClCompile Include="src\COgreThread.cpp" />
     <ClCompile Include="src\Common.cpp" />
     <ClCompile Include="src\ConfigFile.cpp" />
     <ClCompile Include="src\ControlBoxButton.cpp" />
@@ -152,8 +150,6 @@
     <ClInclude Include="src\CNavigationControlButtons.h" />
     <ClInclude Include="src\CNavigationUIButtons.h" />
     <ClInclude Include="src\CNavigationUIController.h" />
-    <ClInclude Include="src\COgreMain.h" />
-    <ClInclude Include="src\COgreThread.h" />
     <ClInclude Include="src\Common.h" />
     <ClInclude Include="src\ConfigFile.h" />
     <ClInclude Include="src\ControlBoxButton.h" />

@@ -31,12 +31,6 @@
     <ClCompile Include="src\CNavigationUIController.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\COgreMain.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\COgreThread.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Common.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -150,12 +144,6 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\CNavigationUIController.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\COgreMain.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\COgreThread.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Common.h">
