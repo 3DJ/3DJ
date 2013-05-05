@@ -273,6 +273,12 @@
 		<Unit filename="src\CBoxView.h">
 			<Option virtualFolder="src\" />
 		</Unit>
+		<Unit filename="src\CHands.cpp">
+			<Option virtualFolder="src" />
+		</Unit>
+		<Unit filename="src\CHands.h">
+			<Option virtualFolder="src" />
+		</Unit>
 		<Unit filename="src\CLoopEditorView.cpp">
 			<Option virtualFolder="src" />
 		</Unit>
@@ -305,6 +311,18 @@
 		</Unit>
 		<Unit filename="src\CNavigationUIController.h">
 			<Option virtualFolder="src\" />
+		</Unit>
+		<Unit filename="src\CPluginLoader.cpp">
+			<Option virtualFolder="src" />
+		</Unit>
+		<Unit filename="src\CPluginLoader.h">
+			<Option virtualFolder="src" />
+		</Unit>
+		<Unit filename="src\CSongs.cpp">
+			<Option virtualFolder="src" />
+		</Unit>
+		<Unit filename="src\CSongs.h">
+			<Option virtualFolder="src" />
 		</Unit>
 		<Unit filename="src\CStateManager.cpp">
 			<Option virtualFolder="src" />
@@ -402,36 +420,6 @@
 		<Unit filename="src\SonicOcean.h">
 			<Option virtualFolder="src" />
 		</Unit>
-		<Unit filename="src\COgreThread.cpp">
-			<Option virtualFolder="src" />
-		</Unit>
-		<Unit filename="src\COgreMain.h">
-			<Option virtualFolder="src" />
-		</Unit>	
-		<Unit filename="src\COgreMain.cpp">
-			<Option virtualFolder="src" />
-		</Unit>
-        <Unit filename="src\CHands.h">
-			<Option virtualFolder="src" />
-		</Unit>	
-		<Unit filename="src\CHands.cpp">
-			<Option virtualFolder="src" />
-		</Unit>
-		<Unit filename="src\COgreThread.h">
-			<Option virtualFolder="src" />
-		</Unit>		
-		<Unit filename="src\CPluginLoader.cpp">
-			<Option virtualFolder="src" />
-		</Unit>
-		<Unit filename="src\CPluginLoader.h">
-			<Option virtualFolder="src" />
-		</Unit>			
-		<Unit filename="src\CSongs.cpp">
-			<Option virtualFolder="src" />
-		</Unit>
-		<Unit filename="src\CSongs.h">
-			<Option virtualFolder="src" />
-        </Unit>
 		<Unit filename="src\main.cpp">
 			<Option virtualFolder="src\" />
 		</Unit>
