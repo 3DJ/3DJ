@@ -10,3 +10,4 @@ build/
 obj
 .DS_Store
 *.swp
+*.xcodeproj
