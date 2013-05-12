@@ -28,7 +28,6 @@ CMenuViewController::~CMenuViewController()
 {
     delete m_menu;
     delete m_loopEditor;
-    delete m_visualEditor;
     delete m_calibrationEditor;
     delete m_datapool;
 }
@@ -37,7 +36,6 @@ void CMenuViewController::initViews()
 {
     m_menu = new CMenuView;
     m_loopEditor = new CLoopEditorView();
-    m_visualEditor = new CVisualThemesView(m_r, m_g, m_b, m_a);
     m_calibrationEditor = new CalibrationView();
 
 }
@@ -48,40 +46,22 @@ void CMenuViewController::menuEvent(ofxUIEventArgs &e)
     int kind = e.widget->getKind();
 
     //Main Menu
-    if(name == "Calibrate"){
-        m_calibrationEditor->m_canvas1->setVisible(true);
-        m_loopEditor->showCanvases(false);
-        m_visualEditor->m_canvas1->setVisible(false);
-    }else if(name == "Start Session"){
+    if(name == "Start Session"){
         static string val = "testThread"; // for testing the datapool communicating between threads
         CDataPool::getInstance().createRef("testDataPool", &val);
         m_exitMenu = true;
         hideAllViews();
         g_currentState = ST_BOX_STATE;
-    } else if(name == "Styles"){
-        m_loopEditor->showCanvases(false);
-        m_visualEditor->m_canvas1->setVisible(true);
-        m_calibrationEditor->m_canvas1->setVisible(false);
     }else if(name == "Sets"){
         m_loopEditor->showCanvases(true);
-        m_visualEditor->m_canvas1->setVisible(false);
         m_calibrationEditor->m_canvas1->setVisible(false);
-    }else if(name == "Get Songs"){
+    }else if(name == "Get Sounds"){
         m_loopEditor->showCanvases(false);
-        m_visualEditor->m_canvas1->setVisible(false);
         m_calibrationEditor->m_canvas1->setVisible(false);
     }else if(name == "Help"){
         m_loopEditor->showCanvases(false);
-        m_visualEditor->m_canvas1->setVisible(false);
         m_calibrationEditor->m_canvas1->setVisible(false);
-
-        //Sub views
-    }else if(name == "Loop Editor"){
-        m_loopEditor->m_canvas1->setVisible(true);
-        m_visualEditor->m_canvas1->setVisible(false);
-        m_calibrationEditor->m_canvas1->setVisible(false);
-    }
-    else if(name == "Save Core Data"){
+    }else if(name == "Save Setup"){
         string saveFileName = "config.3dj";
         CDataPool::getInstance().saveToFile( saveFileName );
     }
@@ -144,7 +124,6 @@ void CMenuViewController::setupDelegates()
     ofAddListener(m_loopEditor->m_canvas2->newGUIEvent, this, &CMenuViewController::loopEditorEvent);
     ofAddListener(m_menu->m_canvas1->newGUIEvent, this, &CMenuViewController::menuEvent);
     ofAddListener(m_loopEditor->m_canvas1->newGUIEvent, this, &CMenuViewController::loopEditorEvent);
-    ofAddListener(m_visualEditor->m_canvas1->newGUIEvent, this, &CMenuViewController::visualEditorEvent);
 
 }
 
@@ -162,7 +141,6 @@ void CMenuViewController::hideAllViews()
     m_menu->m_canvas1->setVisible(false);
     m_loopEditor->m_canvas1->setVisible(false);
     m_loopEditor->m_canvas2->setVisible(false);
-    m_visualEditor->m_canvas1->setVisible(false);
     m_calibrationEditor->m_canvas1->setVisible(false);
 }
 

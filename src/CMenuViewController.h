@@ -10,7 +10,6 @@
 #include "CMenuView.h"
 #include "ofxUI.h"
 #include "CLoopEditorView.h"
-#include "CVisualThemesView.h"
 #include "CalibrationView.h"
 #include "Interface.h"
 #include "DataPool.h"
@@ -40,7 +39,6 @@ public:
 
     CMenuView               *m_menu;
     CLoopEditorView         *m_loopEditor;
-    CVisualThemesView       *m_visualEditor;
     CalibrationView         *m_calibrationEditor;
     CDataPool         *m_datapool;
 

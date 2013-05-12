@@ -38,10 +38,8 @@ void CMenuView::setupGUI()
     //m_canvas1->addWidgetDown(new ofxUIImageButton(0, 0, length, length, false, "icons/3DJ_Logo_Small.png", ""));
     m_canvas1->addWidgetDown(new ofxUILabelButton(0, 0, buttonLength, false, "Start Session"));
     m_canvas1->addWidgetDown(new ofxUILabelButton(0,0,buttonLength, false, "Sets"));
-    m_canvas1->addWidgetDown(new ofxUILabelButton(0, 0, buttonLength, false, "Styles"));
-    m_canvas1->addWidgetDown(new ofxUILabelButton(0, 0, buttonLength, false, "Calibrate"));
-    m_canvas1->addWidgetDown(new ofxUILabelButton(0,0, buttonLength, false, "Get Songs"));
-    m_canvas1->addWidgetDown(new ofxUILabelButton(0, 0, buttonLength, false, "Save Core Data"));
+    m_canvas1->addWidgetDown(new ofxUILabelButton(0,0, buttonLength, false, "Get Sounds"));
+    m_canvas1->addWidgetDown(new ofxUILabelButton(0, 0, buttonLength, false, "Save Setup"));
     m_canvas1->addWidgetDown(new ofxUILabelButton(0, 0, buttonLength, false, "Help"));
 
     
