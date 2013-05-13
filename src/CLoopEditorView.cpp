@@ -25,43 +25,53 @@ void CLoopEditorView::setupGUI()
     int dim = 16;
     int xInit = OFX_UI_GLOBAL_WIDGET_SPACING;
     int widthOffset = 200;
-    int heightOffset = 50;
-    int canvasOneWidth = (ofGetScreenWidth()-widthOffset) / 2;
+    int heightOffset = 32;
+    int canvasOneWidth = (int)(ofGetScreenWidth()-widthOffset) / 1.5f;
     int canvasOneHeight = ofGetScreenHeight();
 
     int canvasTwoWidth = (ofGetScreenWidth()-widthOffset) / 2;
     int canvasTwoHeight = ofGetScreenHeight()-heightOffset;
-    
+
     int spacerHeight = 15;
-    
+
     int buttonHeight = 48;
     int buttonWidth  = 96;
-    
-    
-    //Canvas One ------------------
+    float box_mult   = 3.0f; //multiplier for matrix box sizes
+    float radio_mult = 1.5f; //multiplier for radio button file loader
+
+    //Canvas One -----------------
     m_canvas1 = new ofxUICanvas(widthOffset,heightOffset,canvasOneWidth,canvasOneHeight);
 
     m_canvas1->addWidgetDown(new ofxUILabel("Loop Editor",OFX_UI_FONT_LARGE));
-    m_canvas1->addWidgetDown(new ofxUILabel("Audio Player",OFX_UI_FONT_MEDIUM));
-    m_canvas1->addWidgetDown(new ofxUIToggleMatrix(dim*8.0, dim*8.0, 3, 4, "Matrix A"));
-    
-    
+    m_canvas1->addWidgetDown(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix A"));
+    m_canvas1->addWidgetRight(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix B"));
+    m_canvas1->addWidgetRight(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix C"));
+    m_canvas1->addWidgetDown(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix D"));
+    m_canvas1->addWidgetRight(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix E"));
+    m_canvas1->addWidgetRight(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix F"));
+    m_canvas1->addWidgetDown(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix G"));
+    m_canvas1->addWidgetRight(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix H"));
+    m_canvas1->addWidgetRight(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix I"));
+    m_canvas1->addWidgetDown(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix J"));
+    m_canvas1->addWidgetRight(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix K"));
+    m_canvas1->addWidgetRight(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix L"));
+
     // Canvas Two -----------------
     m_canvas2 = new ofxUICanvas(widthOffset + canvasOneWidth,heightOffset,canvasTwoWidth,canvasTwoHeight);
     m_canvas2->setDrawBack(false);
-    
+
     m_canvas2->addWidgetDown(new ofxUILabel("Audio Loader",OFX_UI_FONT_LARGE));
-    
-	ofxUIWidget *w = (ofxUILabel *) m_canvas2->addWidgetDown(new ofxUILabel(canvasTwoWidth - xInit, "Click on Button to Load File", OFX_UI_FONT_LARGE));
+
+    ofxUIWidget *w = (ofxUILabel *) m_canvas2->addWidgetDown(new ofxUILabel(canvasTwoWidth - xInit, "", OFX_UI_FONT_LARGE));
     w->setColorPadded(paddingColor);
-    
+
     //Loop Loader Row A
     vector<string> boxRowA;
 	boxRowA.push_back("A1");
 	boxRowA.push_back("A2");
 	boxRowA.push_back("A3");
     boxRowA.push_back("A4");
-    w = m_canvas2->addRadio("Row A", boxRowA, OFX_UI_ORIENTATION_HORIZONTAL, dim*3, dim*3);
+    w = m_canvas2->addRadio("Row A", boxRowA, OFX_UI_ORIENTATION_HORIZONTAL, dim*radio_mult, dim*radio_mult);
     w->setColorPadded(paddingColor);
 
     //Loop Loader Row B
@@ -70,18 +80,18 @@ void CLoopEditorView::setupGUI()
 	boxRowB.push_back("B2");
 	boxRowB.push_back("B3");
     boxRowB.push_back("B4");
-    w = m_canvas2->addRadio("Row B", boxRowB, OFX_UI_ORIENTATION_HORIZONTAL, dim*3, dim*3);
+    w = m_canvas2->addRadio("Row B", boxRowB, OFX_UI_ORIENTATION_HORIZONTAL, dim*radio_mult, dim*radio_mult);
     w->setColorPadded(paddingColor);
-    
+
     //Loop Loader Row C
     vector<string> boxRowC;
 	boxRowC.push_back("C1");
 	boxRowC.push_back("C2");
 	boxRowC.push_back("C3");
     boxRowC.push_back("C4");
-    w = m_canvas2->addRadio("Row C", boxRowC, OFX_UI_ORIENTATION_HORIZONTAL, dim*3, dim*3);
+    w = m_canvas2->addRadio("Row C", boxRowC, OFX_UI_ORIENTATION_HORIZONTAL, dim*radio_mult, dim*radio_mult);
     w->setColorPadded(paddingColor);
-    
+
     m_canvas1->setDrawWidgetPadding(false);
     m_canvas2->setDrawWidgetPadding(false);
 
