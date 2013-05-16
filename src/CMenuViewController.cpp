@@ -46,22 +46,22 @@ void CMenuViewController::menuEvent(ofxUIEventArgs &e)
     int kind = e.widget->getKind();
 
     //Main Menu
-    if(name == "Start Session"){
+    if(name == "START SESSION"){
         static string val = "testThread"; // for testing the datapool communicating between threads
         CDataPool::getInstance().createRef("testDataPool", &val);
         m_exitMenu = true;
         hideAllViews();
         g_currentState = ST_BOX_STATE;
-    }else if(name == "Sets"){
+    }else if(name == "SETS"){
         m_loopEditor->showCanvases(true);
         m_calibrationEditor->m_canvas1->setVisible(false);
-    }else if(name == "Get Sounds"){
+    }else if(name == "GET SOUNDS"){
         m_loopEditor->showCanvases(false);
         m_calibrationEditor->m_canvas1->setVisible(false);
-    }else if(name == "Help"){
+    }else if(name == "HELP"){
         m_loopEditor->showCanvases(false);
         m_calibrationEditor->m_canvas1->setVisible(false);
-    }else if(name == "Save Setup"){
+    }else if(name == "SAVE SETUP"){
         string saveFileName = "config.3dj";
         CDataPool::getInstance().saveToFile( saveFileName );
     }

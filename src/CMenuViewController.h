@@ -22,7 +22,6 @@ class CMenuViewController : public IView
 {
 public:
 
-
     CMenuViewController(int red, int blue, int green, int alpha);
     ~CMenuViewController();
 
@@ -40,7 +39,7 @@ public:
     CMenuView               *m_menu;
     CLoopEditorView         *m_loopEditor;
     CalibrationView         *m_calibrationEditor;
-    CDataPool         *m_datapool;
+    CDataPool               *m_datapool;
 
     int m_r, m_g, m_b, m_a;
     bool m_exitMenu;
