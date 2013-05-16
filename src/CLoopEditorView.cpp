@@ -41,12 +41,12 @@ void CLoopEditorView::setupGUI()
 
     ofColor m_3DJ_Green_Light = ofColor(159,231,101);
     ofColor m_3DJ_Green_Dark = ofColor(108,129,100);
-    ofColor buttonGrey = ofColor(200);
+    ofColor buttonGrey = ofColor(61);
     
     //Canvas One -----------------
     m_canvas1 = new ofxUICanvas(widthOffset,heightOffset,canvasOneWidth,canvasOneHeight);
-    m_canvas1->setColorFill(m_3DJ_Green_Light); //color for text
-    m_canvas1->setColorFillHighlight(m_3DJ_Green_Dark);
+    m_canvas1->setColorFill(buttonGrey); //color for text
+    //m_canvas1->setColorFillHighlight(m_3DJ_Green_Dark);
     m_canvas1->setDrawBack(false);
     m_canvas1->setWidgetSpacing(1.0f);
     
@@ -61,12 +61,30 @@ void CLoopEditorView::setupGUI()
 	matrixButtonLabels.push_back("PLAY");
 	matrixButtonLabels.push_back("LOAD");
     
-    m_canvas1->addWidgetDown(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix A"));
-    m_canvas1->addWidgetRight(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix B"));
-    m_canvas1->addWidgetRight(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix C"));
-    m_canvas1->addWidgetDown(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix D"));
-    m_canvas1->addWidgetRight(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix E"));
-    m_canvas1->addWidgetRight(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix F"));
+    ofxUIToggleMatrix *b = (ofxUIToggleMatrix *) m_canvas1->addWidgetDown(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix A"));
+    b->setDrawBack(true);
+    b->setColorBack(buttonGrey);
+    
+    b = (ofxUIToggleMatrix *) m_canvas1->addWidgetRight(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix B"));
+    b->setDrawBack(true);
+    b->setColorBack(buttonGrey);
+    
+    b = (ofxUIToggleMatrix *) m_canvas1->addWidgetRight(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix C"));
+    b->setDrawBack(true);
+    b->setColorBack(buttonGrey);
+    
+    b = (ofxUIToggleMatrix *) m_canvas1->addWidgetDown(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix D"));
+    b->setDrawBack(true);
+    b->setColorBack(buttonGrey);
+    
+    b = (ofxUIToggleMatrix *) m_canvas1->addWidgetRight(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix E"));
+    b->setDrawBack(true);
+    b->setColorBack(buttonGrey);
+    
+    b = (ofxUIToggleMatrix *) m_canvas1->addWidgetRight(new ofxUIToggleMatrix(dim*box_mult, dim*box_mult, 3, 4, "Matrix F"));
+    b->setDrawBack(true);
+    b->setColorBack(buttonGrey);
+    
     m_canvas1->addRadio("PLAY/LOAD", matrixButtonLabels, OFX_UI_ORIENTATION_HORIZONTAL, dim*radio_mult, dim*radio_mult);
    
     // Canvas Two -----------------
