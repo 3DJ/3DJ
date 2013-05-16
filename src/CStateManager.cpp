@@ -41,7 +41,7 @@ void CStateManager::update() {
 //--------------------------------------------------------------
 void CStateManager::draw() {
     //ofBackground(m_red, m_green, m_blue, m_alpha);
-    ofBackgroundGradient(ofColor(58), ofColor(15));
+    ofBackgroundGradient(ofColor(42), ofColor(5));
     m_world->draw();
 }
 

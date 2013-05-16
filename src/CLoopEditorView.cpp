@@ -73,7 +73,7 @@ void CLoopEditorView::setupGUI()
     m_canvas2 = new ofxUICanvas(widthOffset + canvasOneWidth,heightOffset,canvasTwoWidth,canvasTwoHeight);
     m_canvas2->setDrawBack(false);
     m_canvas2->setColorFill(m_3DJ_Green_Light); //color for text
-    m_canvas2->addWidgetDown(new ofxUILabel("Audio Loader",OFX_UI_FONT_LARGE));
+    m_canvas2->addWidgetDown(new ofxUILabel("AUDIO LOADER",OFX_UI_FONT_LARGE));
 
     ofxUIWidget *w = (ofxUILabel *) m_canvas2->addWidgetDown(new ofxUILabel(canvasTwoWidth - xInit, "", OFX_UI_FONT_LARGE));
     w->setColorPadded(paddingColor);

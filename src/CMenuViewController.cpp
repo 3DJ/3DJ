@@ -22,6 +22,8 @@ CMenuViewController::CMenuViewController(int red, int green, int blue, int alpha
     hideAllViews(); //hide all views at start
     m_loopEditor->showCanvases(true); //show loop editor window at start
     showMenuView(true); //Start with menu
+    
+    m_bg.loadImage("textures/scratch_tile.png");
 }
 
 CMenuViewController::~CMenuViewController()
@@ -146,6 +148,14 @@ void CMenuViewController::hideAllViews()
 
 bool CMenuViewController::draw()
 {
+    int h = m_bg.height;
+    int w = m_bg.width;
+    for (int x = 0; x < ofGetScreenWidth(); x += w) {
+        for (int y = 0; y < ofGetScreenHeight(); y += h ) {
+            m_bg.draw(x,y);
+        }
+        
+    }
     showMenuView(true);
     return true;
 }

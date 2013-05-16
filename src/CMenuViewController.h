@@ -44,6 +44,7 @@ public:
     int m_r, m_g, m_b, m_a;
     bool m_exitMenu;
 
+    ofImage m_bg; //background texture
     string originalFileExtension;
 };
 
