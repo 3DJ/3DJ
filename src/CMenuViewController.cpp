@@ -20,8 +20,8 @@ CMenuViewController::CMenuViewController(int red, int green, int blue, int alpha
     initViews();
     setupDelegates(); //adds ofAddListener for each ofxUICanvas in views
     hideAllViews(); //hide all views at start
-    m_loopEditor->showCanvases(true); //show loop editor window at start
     showMenuView(true); //Start with menu
+    m_clipboard->showCanvases(true);
     
     m_bg.loadImage("textures/scratch_tile.png");
 }
@@ -29,16 +29,16 @@ CMenuViewController::CMenuViewController(int red, int green, int blue, int alpha
 CMenuViewController::~CMenuViewController()
 {
     delete m_menu;
-    delete m_loopEditor;
     delete m_calibrationEditor;
     delete m_datapool;
+    delete m_clipboard;
 }
 
 void CMenuViewController::initViews()
 {
     m_menu = new CMenuView;
-    m_loopEditor = new CLoopEditorView();
     m_calibrationEditor = new CalibrationView();
+    m_clipboard = new Clipboard();
 
 }
 
@@ -55,13 +55,13 @@ void CMenuViewController::menuEvent(ofxUIEventArgs &e)
         hideAllViews();
         g_currentState = ST_BOX_STATE;
     }else if(name == "CONFIGURE SESSION"){
-        m_loopEditor->showCanvases(true);
+        m_clipboard->showCanvases(true);
         m_calibrationEditor->m_canvas1->setVisible(false);
     }else if(name == "GET SOUNDS"){
-        m_loopEditor->showCanvases(false);
+        m_clipboard->showCanvases(false);
         m_calibrationEditor->m_canvas1->setVisible(false);
     }else if(name == "HELP"){
-        m_loopEditor->showCanvases(false);
+        m_clipboard->showCanvases(false);
         m_calibrationEditor->m_canvas1->setVisible(false);
     }else if(name == "SAVE SESSION"){
         string saveFileName = "config.3dj";
@@ -123,9 +123,7 @@ void CMenuViewController::visualEditorEvent(ofxUIEventArgs &e)
 
 void CMenuViewController::setupDelegates()
 {
-    ofAddListener(m_loopEditor->m_canvas2->newGUIEvent, this, &CMenuViewController::loopEditorEvent);
     ofAddListener(m_menu->m_canvas1->newGUIEvent, this, &CMenuViewController::menuEvent);
-    ofAddListener(m_loopEditor->m_canvas1->newGUIEvent, this, &CMenuViewController::loopEditorEvent);
 
 }
 
@@ -141,8 +139,7 @@ void CMenuViewController::showMenuView(bool _showMenuView)
 void CMenuViewController::hideAllViews()
 {
     m_menu->m_canvas1->setVisible(false);
-    m_loopEditor->m_canvas1->setVisible(false);
-    m_loopEditor->m_canvas2->setVisible(false);
+    m_clipboard->m_canvas1->setVisible(false);
     m_calibrationEditor->m_canvas1->setVisible(false);
 }
 

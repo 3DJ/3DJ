@@ -22,11 +22,11 @@ void CMenuView::setupGUI()
 {
     int heightOffset = 64;
     int canvas_w = 200;
-    int canvas_h = 260;   //ofGetScreenHeight() - heightOffset;
+    int canvas_h = 375;   //ofGetScreenHeight() - heightOffset;
     float xInit = OFX_UI_GLOBAL_WIDGET_SPACING; 
     float length = canvas_w-(xInit*2);
     float buttonLength = length; //(length-xInit)*.5;
-    int buttonHeight = 40;
+    int buttonHeight = 70;
     
     ofColor m_3DJ_Green_Light = ofColor(159,231,101);
     ofColor m_3DJ_Green_Dark = ofColor(108,129,100);

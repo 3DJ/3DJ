@@ -2,7 +2,7 @@
 //  CMenuView.h
 //  3DJ
 //
-//  Created by  on 9/1/12.
+//  Created by Sam Ruberti on 9/1/12.
 //
 
 #ifndef _DJ_UI_CMenuView_h

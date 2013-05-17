@@ -9,11 +9,11 @@
 #define _DJ_UI_CMenuViewController_h
 #include "CMenuView.h"
 #include "ofxUI.h"
-#include "CLoopEditorView.h"
 #include "CalibrationView.h"
 #include "Interface.h"
 #include "DataPool.h"
 #include "BoxButton.h"
+#include "Clipboard.h"
 
 using namespace DataPool;
 using namespace Interface;
@@ -37,7 +37,7 @@ public:
     void processOpenFileSelection(ofFileDialogResult openFileResult, string boxID);
 
     CMenuView               *m_menu;
-    CLoopEditorView         *m_loopEditor;
+    Clipboard               *m_clipboard;
     CalibrationView         *m_calibrationEditor;
     CDataPool               *m_datapool;
 
