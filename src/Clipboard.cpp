@@ -37,6 +37,7 @@ void Clipboard::setupGUI(){
     ofColor m_3DJ_Green_Dark = ofColor(108,129,100);
     ofColor buttonGrey = ofColor(61);
     ofColor canvasGrey = ofColor(20);
+    ofColor col = ofColor(20);
     
     //Canvas One Setup
     m_canvas1 = new ofxUICanvas( m_posX, m_posY, clipboardWidth, clipboardHeight );
@@ -67,7 +68,7 @@ void Clipboard::setupGUI(){
     m_canvas1->setWidgetSpacing(buttonPadding); //reset spaceing
     
     //Matrix Buttons
-    ofxUIWidget *w = (ofxUIToggleMatrix *) m_canvas1->addWidgetDown(new ofxUIToggleMatrix(dim, dim, 3, 4, ""));
+    ofxUIWidget *w = (ofxUIWidget *) m_canvas1->addWidgetDown(new ofxUIToggleMatrix(dim, dim, 3, 4, ""));
     w->setColorFill(buttonGrey);
     
     //Control Buttons: Play Save Load
