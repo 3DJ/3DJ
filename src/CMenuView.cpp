@@ -49,13 +49,13 @@ void CMenuView::setupGUI()
     ofxUILabelButton *b = (ofxUILabelButton *) m_canvas1->addWidgetDown(
                                 new ofxUILabelButton("START SESSION", false, buttonLength, buttonHeight, 0, 0, OFX_UI_FONT_SMALL, false));
     b->setColorBack(m_3DJ_Green_Light);
-    b = (ofxUILabelButton *) m_canvas1->addWidgetDown(new ofxUILabelButton("SETS", false, buttonLength, buttonHeight,0, 0, OFX_UI_FONT_SMALL, false));
+    b = (ofxUILabelButton *) m_canvas1->addWidgetDown(new ofxUILabelButton("CONFIGURE SESSION", false, buttonLength, buttonHeight,0, 0, OFX_UI_FONT_SMALL, false));
+    b->setColorBack(m_3DJ_Green_Light);
+    b = (ofxUILabelButton *) m_canvas1->addWidgetDown(new ofxUILabelButton("SAVE SESSION", false, buttonLength, buttonHeight,0, 0, OFX_UI_FONT_SMALL, false));
     b->setColorBack(m_3DJ_Green_Light);
     b = (ofxUILabelButton *) m_canvas1->addWidgetDown(new ofxUILabelButton("GET SOUNDS", false, buttonLength, buttonHeight,0, 0, OFX_UI_FONT_SMALL, false));
     b->setColorBack(m_3DJ_Green_Light);
-    b = (ofxUILabelButton *) m_canvas1->addWidgetDown(new ofxUILabelButton("SAVE SETUP", false, buttonLength, buttonHeight,0, 0, OFX_UI_FONT_SMALL, false));
-    b->setColorBack(m_3DJ_Green_Light);
-    b->setColorFill(m_3DJ_Green_Dark);
+    
     b = (ofxUILabelButton *) m_canvas1->addWidgetDown(new ofxUILabelButton("HELP", false, buttonLength, buttonHeight,0, 0, OFX_UI_FONT_SMALL, false));
     b->setColorBack(m_3DJ_Green_Light);
 }

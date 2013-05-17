@@ -54,7 +54,7 @@ void CMenuViewController::menuEvent(ofxUIEventArgs &e)
         m_exitMenu = true;
         hideAllViews();
         g_currentState = ST_BOX_STATE;
-    }else if(name == "SETS"){
+    }else if(name == "CONFIGURE SESSION"){
         m_loopEditor->showCanvases(true);
         m_calibrationEditor->m_canvas1->setVisible(false);
     }else if(name == "GET SOUNDS"){
@@ -63,7 +63,7 @@ void CMenuViewController::menuEvent(ofxUIEventArgs &e)
     }else if(name == "HELP"){
         m_loopEditor->showCanvases(false);
         m_calibrationEditor->m_canvas1->setVisible(false);
-    }else if(name == "SAVE SETUP"){
+    }else if(name == "SAVE SESSION"){
         string saveFileName = "config.3dj";
         CDataPool::getInstance().saveToFile( saveFileName );
     }
