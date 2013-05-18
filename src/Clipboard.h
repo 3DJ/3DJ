@@ -35,6 +35,7 @@ public:
     bool loadCanvasAssets();
     void update();
     void changeState(string s);
+    void setMatrixButtonsMode();
     ofVec2f getCanvasPosition();
     
     ofxUICanvas *m_canvas1;
@@ -44,6 +45,7 @@ public:
     string m_clipboardTitle;
     int m_posX;
     int m_posY;
+    string m_matrixButtonName;
     
     ClipboardState m_state;
     

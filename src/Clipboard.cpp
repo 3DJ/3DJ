@@ -20,6 +20,7 @@ Clipboard::Clipboard(int _x, int _y, ofxUIColor col_canvas, ofxUIColor col_butto
     m_col_outline_highlight = col_outline_highlight;
     m_col_padded = col_padded;
     m_col_padded_outline = col_padded_outline;
+    m_matrixButtonName = "matrix";
     
     m_state = ST_MENU_PLAY;
     
@@ -54,7 +55,7 @@ void Clipboard::setupGUI(){
     ofxUIWidget *w = (ofxUIWidget *) m_canvas1->addWidgetDown(new ofxUIImageToggle(0.0f ,0.0f,moveButtonSize, moveButtonSize, true, "icons/green_bar.png", "move", OFX_UI_FONT_SMALL));
     
     ofxUIWidget *m = (ofxUIWidget *) m_canvas1->addWidgetRight( new ofxUITextInput("", "NAME", 170, moveButtonSize, 0, 0, OFX_UI_FONT_SMALL ));
-    w = m_canvas1->addWidgetDown(new ofxUIToggleMatrix( matrixButtonSize, matrixButtonSize, 3, 4, ""));
+    w = m_canvas1->addWidgetDown(new ofxUIToggleMatrix( matrixButtonSize, matrixButtonSize, 3, 4, m_matrixButtonName));
     m_canvas1->setWidgetSpacing(10);
     
     w = m_canvas1->addWidgetDown(new ofxUIImageToggle(0.0f ,0.0f,controlButtonSize,controlButtonSize, true, "icons/play.png", "play", OFX_UI_FONT_SMALL));
@@ -114,17 +115,32 @@ bool Clipboard::loadCanvasAssets(){
 
 void Clipboard::changeState(string s){
     for (vector<ofxUIWidget *>::iterator w = m_imageButtons.begin(); w < m_imageButtons.end(); w++) {
+        
         if (s == "play" || s == "load") {
             if((*w)->getName() == "play" && "play" == s){
                 (*w)->setDrawFill(true);
                 m_state = ST_MENU_PLAY;
+                setMatrixButtonsMode();
             } else if((*w)->getName() == "load" && "load" == s){
                 (*w)->setDrawFill(true);
                 m_state = ST_MENU_LOAD;
+                setMatrixButtonsMode();
             }else {
                 (*w)->setDrawFill(false);
             }
         }
+        
+        if (s == m_matrixButtonName) {
+            
+        }
+    }
+}
+
+void Clipboard::setMatrixButtonsMode(){
+   ofxUIToggleMatrix *w = (ofxUIToggleMatrix *) m_canvas1->getWidget(m_matrixButtonName);
+    if (m_state == ST_MENU_LOAD) {
+        w->setAllToggles(false);
+        w->setDrawBack(false);
     }
 }
 
