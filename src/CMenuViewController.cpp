@@ -36,10 +36,16 @@ CMenuViewController::~CMenuViewController()
 
 void CMenuViewController::initViews()
 {
+    
+    ofColor green_light = ofColor(159,231,101);
+    ofColor green_dark = ofColor(108,129,100);
+    ofColor button_grey = ofColor(61);
+    ofColor canvas_grey = ofColor(20);
+    ofColor white = ofColor(255);
+    
     m_menu = new CMenuView;
     m_calibrationEditor = new CalibrationView();
-    m_clipboard = new Clipboard();
-
+    m_clipboard = new Clipboard( 232, 64, canvas_grey, button_grey, white, green_dark, green_light, canvas_grey, green_dark);
 }
 
 void CMenuViewController::menuEvent(ofxUIEventArgs &e)
