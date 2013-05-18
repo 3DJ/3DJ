@@ -21,12 +21,17 @@ Clipboard::Clipboard(int _x, int _y, ofxUIColor col_canvas, ofxUIColor col_butto
     m_col_padded = col_padded;
     m_col_padded_outline = col_padded_outline;
     
+    m_state = ST_MENU_PLAY;
+    
     setupGUI();
 }
 
 Clipboard::~Clipboard(){
     //saveSettings();
     if (m_canvas1) delete m_canvas1;
+    for (vector<ofxUIWidget *>::iterator w = m_imageButtons.begin(); w < m_imageButtons.end(); w++) {
+        delete (*w);
+    }
 }
 
 void Clipboard::setupGUI(){
@@ -47,23 +52,44 @@ void Clipboard::setupGUI(){
     loadCanvasAssets();
     
     ofxUIWidget *w = (ofxUIWidget *) m_canvas1->addWidgetDown(new ofxUIImageToggle(0.0f ,0.0f,moveButtonSize, moveButtonSize, true, "icons/green_bar.png", "move", OFX_UI_FONT_SMALL));
+    
     ofxUIWidget *m = (ofxUIWidget *) m_canvas1->addWidgetRight( new ofxUITextInput("", "NAME", 170, moveButtonSize, 0, 0, OFX_UI_FONT_SMALL ));
     w = m_canvas1->addWidgetDown(new ofxUIToggleMatrix( matrixButtonSize, matrixButtonSize, 3, 4, ""));
     m_canvas1->setWidgetSpacing(10);
-    w = m_canvas1->addWidgetDown(new ofxUIImageToggle(0.0f ,0.0f,controlButtonSize,controlButtonSize, true, "icons/play.png", "play", OFX_UI_FONT_SMALL));
-    w->setColorBack(m_col_button);
-    w = m_canvas1->addWidgetRight(new ofxUIImageToggle(0.0f ,0.0f,controlButtonSize,controlButtonSize, false, "icons/loadFile.png", "load", OFX_UI_FONT_SMALL));
-    w = m_canvas1->addWidgetRight(new ofxUIImageToggle(0.0f ,0.0f,controlButtonSize,controlButtonSize, false, "icons/saveFile.png", "save", OFX_UI_FONT_SMALL));
-    w = m_canvas1->addWidgetRight(new ofxUIImageToggle(0.0f ,0.0f,controlButtonSize,controlButtonSize, false, "icons/x.png", "close", OFX_UI_FONT_SMALL));
     
+    w = m_canvas1->addWidgetDown(new ofxUIImageToggle(0.0f ,0.0f,controlButtonSize,controlButtonSize, true, "icons/play.png", "play", OFX_UI_FONT_SMALL));
+    m_imageButtons.push_back(w);
+    
+    w = m_canvas1->addWidgetRight(new ofxUIImageToggle(0.0f ,0.0f,controlButtonSize,controlButtonSize, false, "icons/loadFile.png", "load", OFX_UI_FONT_SMALL));
+    m_imageButtons.push_back(w);
+    
+    m_canvas1->addWidgetRight(new ofxUIImageButton(0.0f ,0.0f,controlButtonSize,controlButtonSize, false, "icons/saveFile.png", "save", OFX_UI_FONT_SMALL));
+    m_canvas1->addWidgetRight(new ofxUIImageButton(0.0f ,0.0f,controlButtonSize,controlButtonSize, false, "icons/x.png", "close", OFX_UI_FONT_SMALL));
+   
     setWidgetColors(); //draw color settings to canvas & all widgets
     m->setDrawBack(false); //overide color settings for certain widgets
+    setControllButtonColors();
+    
+    
+}
+
+void Clipboard::setControllButtonColors(){
+    for (vector<ofxUIWidget *>::iterator w = m_imageButtons.begin(); w < m_imageButtons.end(); w++) {
+        (*w)->setDrawBack(true);
+        (*w)->setColorBack(m_col_button);
+        (*w)->setColorFill(m_col_outline_highlight);
+        (*w)->setColorFillHighlight(m_col_padded_outline);
+    }
 }
 
 void Clipboard::setWidgetColors(){
     m_canvas1->setWidgetColor(OFX_UI_WIDGET_COLOR_BACK, m_col_button);
     m_canvas1->setWidgetColor(OFX_UI_WIDGET_COLOR_FILL_HIGHLIGHT, m_col_fill_highlight);
     m_canvas1->setWidgetColor(OFX_UI_WIDGET_COLOR_OUTLINE_HIGHLIGHT, m_col_outline_highlight);
+}
+
+void Clipboard::update(){
+
 }
 
 bool Clipboard::loadCanvasAssets(){
@@ -84,6 +110,22 @@ bool Clipboard::loadCanvasAssets(){
     m_playImg->loadImage("icons/play.png");
     m_loadImg = new ofImage();
     m_loadImg->loadImage("icons/loadFile.png");
+}
+
+void Clipboard::changeState(string s){
+    for (vector<ofxUIWidget *>::iterator w = m_imageButtons.begin(); w < m_imageButtons.end(); w++) {
+        if (s == "play" || s == "load") {
+            if((*w)->getName() == "play" && "play" == s){
+                (*w)->setDrawFill(true);
+                m_state = ST_MENU_PLAY;
+            } else if((*w)->getName() == "load" && "load" == s){
+                (*w)->setDrawFill(true);
+                m_state = ST_MENU_LOAD;
+            }else {
+                (*w)->setDrawFill(false);
+            }
+        }
+    }
 }
 
 void Clipboard::setupButtons(){

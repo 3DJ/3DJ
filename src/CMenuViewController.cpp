@@ -48,6 +48,11 @@ void CMenuViewController::initViews()
     m_clipboard = new Clipboard( 232, 64, canvas_grey, button_grey, white, green_dark, green_light, canvas_grey, green_dark);
 }
 
+void CMenuViewController::update()
+{
+    m_clipboard->update();
+}
+
 void CMenuViewController::menuEvent(ofxUIEventArgs &e)
 {
     string name = e.widget->getName();
@@ -73,6 +78,14 @@ void CMenuViewController::menuEvent(ofxUIEventArgs &e)
         string saveFileName = "config.3dj";
         CDataPool::getInstance().saveToFile( saveFileName );
     }
+}
+
+void CMenuViewController::clipboardEvent(ofxUIEventArgs &e)
+{
+    string name = e.widget->getName();
+    int kind = e.widget->getKind();
+    m_clipboard->changeState(name);
+     ofLogVerbose((string)name);
 }
 
 void CMenuViewController::loopEditorEvent(ofxUIEventArgs &e)
@@ -130,6 +143,7 @@ void CMenuViewController::visualEditorEvent(ofxUIEventArgs &e)
 void CMenuViewController::setupDelegates()
 {
     ofAddListener(m_menu->m_canvas1->newGUIEvent, this, &CMenuViewController::menuEvent);
+    ofAddListener(m_clipboard->m_canvas1->newGUIEvent, this, &CMenuViewController::clipboardEvent);
 
 }
 

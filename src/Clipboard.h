@@ -10,6 +10,11 @@
 #define __openNI_3DJ__Clipboard__
 #include "CWindow_Base.h"
 
+typedef enum m_st {
+    ST_MENU_PLAY = 0,
+    ST_MENU_LOAD,
+}ClipboardState;
+
 class Clipboard : public CWindow_Base
 {
 public:
@@ -26,14 +31,21 @@ public:
     void setColorTheme(int theme);
     void setWidgetColors();
     void moveClipboard(int x, int y );
+    void setControllButtonColors();
     bool loadCanvasAssets();
+    void update();
+    void changeState(string s);
     ofVec2f getCanvasPosition();
     
     ofxUICanvas *m_canvas1;
     
+    vector<ofxUIWidget *> m_imageButtons;  //Holds the controller buttons at bottom of clipboard
+    
     string m_clipboardTitle;
     int m_posX;
     int m_posY;
+    
+    ClipboardState m_state;
     
     ofImage *greenImg;
     ofImage *m_xImg, *m_saveImg, *m_playImg, *m_loadImg;

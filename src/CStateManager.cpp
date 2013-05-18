@@ -27,6 +27,7 @@ void CStateManager::update() {
 
     if (g_currentState == ST_MENU_STATE) {
         m_world->init( 0, m_menuVC);
+        m_menuVC->update();
     }else if(g_currentState == ST_BOX_STATE) {
         m_world->init( m_boxController, m_boxView );
     }

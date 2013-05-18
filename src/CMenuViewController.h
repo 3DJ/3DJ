@@ -28,11 +28,13 @@ public:
     void initViews();
     void setupDelegates();
     void menuEvent(ofxUIEventArgs &e);
+    void clipboardEvent(ofxUIEventArgs &e);
     void loopEditorEvent(ofxUIEventArgs &e);
     void visualEditorEvent(ofxUIEventArgs &e);
     void showMenuView(bool _showMenuView);
     void hideAllViews();
     bool draw();
+    void update();
     void saveRadioButtonInfo(string boxID);
     void processOpenFileSelection(ofFileDialogResult openFileResult, string boxID);
 
