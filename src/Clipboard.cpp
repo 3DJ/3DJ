@@ -71,15 +71,14 @@ void Clipboard::setupGUI(){
     m->setDrawBack(false); //overide color settings for certain widgets
     setControllButtonColors();
     
-    
 }
 
 void Clipboard::setControllButtonColors(){
     for (vector<ofxUIWidget *>::iterator w = m_imageButtons.begin(); w < m_imageButtons.end(); w++) {
         (*w)->setDrawBack(true);
-        (*w)->setColorBack(m_col_button);
+        (*w)->setColorBack(m_col_fill_highlight);
         (*w)->setColorFill(m_col_outline_highlight);
-        (*w)->setColorFillHighlight(m_col_padded_outline);
+        //(*w)->setColorFillHighlight(m_col_padded_outline);
     }
 }
 
@@ -90,7 +89,7 @@ void Clipboard::setWidgetColors(){
 }
 
 void Clipboard::update(){
-
+    
 }
 
 bool Clipboard::loadCanvasAssets(){
@@ -114,8 +113,8 @@ bool Clipboard::loadCanvasAssets(){
 }
 
 void Clipboard::changeState(string s){
+   
     for (vector<ofxUIWidget *>::iterator w = m_imageButtons.begin(); w < m_imageButtons.end(); w++) {
-        
         if (s == "play" || s == "load") {
             if((*w)->getName() == "play" && "play" == s){
                 (*w)->setDrawFill(true);
@@ -130,8 +129,13 @@ void Clipboard::changeState(string s){
             }
         }
         
-        if (s == m_matrixButtonName) {
+        if (s == "close") {
+            //warn about saving first, then save if yes
+            //Close window
+        } else if (s == "load"){
             
+        } else { //Matrix buttons
+            setMatrixButtonsMode();
         }
     }
 }

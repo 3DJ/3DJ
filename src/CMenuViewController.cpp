@@ -84,8 +84,13 @@ void CMenuViewController::clipboardEvent(ofxUIEventArgs &e)
 {
     string name = e.widget->getName();
     int kind = e.widget->getKind();
+    int parent = e.widget->getParent()->getKind();
     m_clipboard->changeState(name);
-     ofLogVerbose((string)name);
+    ofLogVerbose(ofToString(e.widget->getParent()->getKind() ));
+
+    if(m_clipboard->m_state == ST_MENU_LOAD && parent == OFX_UI_WIDGET_TOGGLEMATRIX){
+        saveRadioButtonInfo(name);
+    }
 }
 
 void CMenuViewController::loopEditorEvent(ofxUIEventArgs &e)
@@ -97,6 +102,7 @@ void CMenuViewController::loopEditorEvent(ofxUIEventArgs &e)
     if(name == "A1"){
         saveRadioButtonInfo(name);
     }else if(name == "A2"){
+        
         saveRadioButtonInfo(name);
     }else if(name == "A3"){
         saveRadioButtonInfo(name);
