@@ -29,7 +29,7 @@ public:
     void setupDelegates();
     void menuEvent(ofxUIEventArgs &e);
     void clipboardEvent(ofxUIEventArgs &e);
-    void loopEditorEvent(ofxUIEventArgs &e);
+    void loopEditorEvent(string name);
     void visualEditorEvent(ofxUIEventArgs &e);
     void showMenuView(bool _showMenuView);
     void hideAllViews();

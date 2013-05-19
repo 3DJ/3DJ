@@ -86,53 +86,40 @@ void CMenuViewController::clipboardEvent(ofxUIEventArgs &e)
     int kind = e.widget->getKind();
     int parent = e.widget->getParent()->getKind();
     m_clipboard->changeState(name);
-    ofLogVerbose(ofToString(e.widget->getParent()->getKind() ));
+    ofLogVerbose(ofToString(name));
 
     if(m_clipboard->m_state == ST_MENU_LOAD && parent == OFX_UI_WIDGET_TOGGLEMATRIX){
-        saveRadioButtonInfo(name);
+        loopEditorEvent(ofToString(name));
     }
 }
 
-void CMenuViewController::loopEditorEvent(ofxUIEventArgs &e)
+void CMenuViewController::loopEditorEvent(string name)
 {
-    string name = e.widget->getName();
-    int kind = e.widget->getKind();
-
-    //=============================== Radio Buttons  File Load
-    if(name == "A1"){
-        saveRadioButtonInfo(name);
-    }else if(name == "A2"){
-        
-        saveRadioButtonInfo(name);
-    }else if(name == "A3"){
-        saveRadioButtonInfo(name);
-    }else if(name == "A4"){
-        saveRadioButtonInfo(name);
-    }else if(name == "B1"){
-        saveRadioButtonInfo(name);
-    }else if(name == "B2"){
-        saveRadioButtonInfo(name);
-    }else if(name == "B3"){
-        saveRadioButtonInfo(name);
-    }else if(name == "B4"){
-        saveRadioButtonInfo(name);
-    }else if(name == "C1"){
-        saveRadioButtonInfo(name);
-    }else if(name == "C2"){
-        saveRadioButtonInfo(name);
-    }else if(name == "C3"){
-        saveRadioButtonInfo(name);
-    }else if(name == "C4"){
-        saveRadioButtonInfo(name);
+    if(name == "matrix(0,0)"){
+        saveRadioButtonInfo("A1");
+    }else if(name == "matrix(1,0)"){
+        saveRadioButtonInfo("A2");
+    }else if(name == "matrix(2,0)"){
+        saveRadioButtonInfo("A3");
+    }else if(name == "matrix(3,0)"){
+        saveRadioButtonInfo("A4");
+    }else if(name == "matrix(0,1)"){
+        saveRadioButtonInfo("B1");
+    }else if(name == "matrix(1,1)"){
+        saveRadioButtonInfo("B2");
+    }else if(name == "matrix(2,1)"){
+        saveRadioButtonInfo("B3");
+    }else if(name == "matrix(3,1)"){
+        saveRadioButtonInfo("B4");
+    }else if(name == "matrix(0,2)"){
+        saveRadioButtonInfo("C1");
+    }else if(name == "matrix(1,2)"){
+        saveRadioButtonInfo("C2");
+    }else if(name == "matrix(2,2)"){
+        saveRadioButtonInfo("C3");
+    }else if(name == "matrix(3,2)"){
+        saveRadioButtonInfo("C4");
     }
-    //=============================== Matrix Sound Player
-
-    else if(name == "Matrix A"){
-        ofxUIToggleMatrix *mat = (ofxUIToggleMatrix *) e.widget;
-        //Get toggles() ???
-        //Loop sample
-    }
-    
 }
 
 void CMenuViewController::visualEditorEvent(ofxUIEventArgs &e)
